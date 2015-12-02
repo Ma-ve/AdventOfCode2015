@@ -7,17 +7,24 @@ class Present {
 	}
 
 	public function wrappingNeeded() {
-		$this->paper_needed += (2 * ($this->l * $this->w));
-		$this->paper_needed += (2 * ($this->w * $this->h));
-		$this->paper_needed += (2 * ($this->l * $this->h));
-		$this->paper_needed += min([$this->l, $this->w, $this->h]);
+		$lw = $this->l * $this->w;
+		$lh = $this->l * $this->h;
+		$wh = $this->w * $this->h;
+
+		$this->paper_needed += 2 * $lw;
+		$this->paper_needed += 2 * $lh;
+		$this->paper_needed += 2 * $wh;
+		$this->paper_needed += min([$lw, $lh, $wh]);
 	}
 
 }
 
 
+$total_paper_needed = 0;
+
 $file = file_get_contents("input/day2.txt");
 $lines = explode("\n", $file);
+
 foreach($lines as $line) {
 
 	$dimensions = explode("x", $line);
@@ -30,6 +37,8 @@ foreach($lines as $line) {
 	$present->h = $h;
 
 	$present->wrappingNeeded();
-	
-	echo $present->paper_needed; exit();
+
+	$total_paper_needed += $present->paper_needed;
 }
+
+echo $total_paper_needed;
