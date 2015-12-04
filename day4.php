@@ -22,3 +22,9 @@ First half
 */
 echo '<h1>Day 4 - First half</h1>';
 echo 'Starting with 5 zeroes: ' . find_leading_zeroes($input);
+
+/**
+Second half
+*/
+echo '<h1>Day 4 - Second half</h1>';
+echo 'Starting with 6 zeroes: ' . find_leading_zeroes($input, 6);
