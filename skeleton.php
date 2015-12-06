@@ -31,7 +31,7 @@ foreach($part1_tests as $k => $v) {
 /**
 Second half
 */
-echo '<h1>Day ' . $day . ' - First half</h1>';
+echo '<h1>Day ' . $day . ' - Second half</h1>';
 
 //Business logic
 
