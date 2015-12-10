@@ -16,9 +16,10 @@ function lookAndSay($str) {
 }
 
 function doManyTimes($input, $times) {
+	echo '00: ' . $input . ' - ' . strlen($input) . '<br>';
 	foreach (range(1, $times) as $i) {
-		echo substr($input, -100) . (strlen($input) > 100 ? '&hellip;' : '') . '<br>';
 		$input = lookAndSay($input);
+		echo ($i < 10 ? '0' . $i : $i) . ': ' . substr($input, -100) . (strlen($input) > 100 ? '&hellip;' : '') . ' - ' . strlen($input) . '<br>';
 	}
 
 	if ($i === $times) {
